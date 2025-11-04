@@ -1,3 +1,8 @@
+Free and Open Source OS.Popular for its stability,security and flexibility.
+Faster processing and enhanced security.
+Made in 1991 by Linus Travalds.
+
+
 Linux has a super user account called root.
 	A root is a most powerful account that can create ,modify, delete  accounts  and make changes to system configuration files.
 
@@ -9,4 +14,5 @@ Linux kernel is not operating system. It is small software within Linux operatin
 It is mostly CLI not GUI.
 
 Linux is very flexible as compared to other OS.
+
 
