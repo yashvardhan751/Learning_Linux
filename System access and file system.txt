@@ -1,0 +1,131 @@
+Root :-
+
+There are 3 type of root on Linux -
+1. Root account: most powerful account which has access to all command and files.
+2.Root as /: the very first directory in Linux is also called root directory.
+3. Root as home directory: the root user account also has a directory located in / root which is called root home directory.
+
+Changing Password :-
+
+Command = passwd userid
+
+File System :-
+
+It is system used by OS to manage files. The system controls how data is saved or retrieved.
+Eg of Linux File System :- ext3,ext4 ,xfs
+
+File system structure and its description :-
+
+1. /boot :-Contains files that is used by the boot loader(grub.cfg)
+2./root :- root user home directory. It is not same as /
+3./dev :- System devices
+4./etc : Configuration files 
+5./bin :- Everyday user commands
+6./sbin :- System/filesystem commands
+7./proc :- Running process.
+8./lib:- C programming library files needed by command and apps.
+9. /tmp :- Directory for temporary files
+10 ./home :- Directory for user.
+11 ./var :- System logs 
+12. .run :-System daemons that start very early to store temporary runtime files like PID files.
+13./mnt :-To mount external filesystem.
+14./media :- For cdrom mounts
+
+
+Navigating File System :-
+
+cd: change directory
+pwd :print working directory.
+ls :list 
+(cd ..) :- u go one step back by doing this 
+
+Properties of Linux file or directory :- 
+
+do ls -l 
+directory start with d ,link with l and files with - .
+using this command we will also get the info about directory like how and when it was created.
+
+Paths of file system.
+
+1. Absolute path :- 
+   Always begin with "/" .This indicated that the path starts at the root directory. An example of an absolute path is :- cd/var/log/samba.
+
+2.Relative path :- does not begin with "/". It defines a location relative to your current position. An example is :- 
+cd var 
+cd log 
+cd samba
+
+Creating files and Directories 
+
+Creating files 
+touch  || cp || vi 
+Creating Directory 
+mkdir
+
+touch command can create multiple file in single go .
+eg : touch a b c 
+
+Copying Directories :- 
+ use " cp " command 
+ 
+eg :cp -R <source folder><destination folder>
+
+
+#Finding Files and directories :- 
+ 
+Command 
+ 1. Find 
+ 2. Locate
+
+find <location where u have to search > "word to be searched "
+
+Locate "word to be searched "
+
+#Difference between locate and find.
+
+Locate command uses a prebuilt database which should be regularly updated, while find iterates over a filesystem to locate files. Thus, locate is much faster than find but can be inaccurate if the database is not updated .
+To update the DB run Updatedb.
+
+#Wildcards:-
+
+A Character that can be used as a substitute for any of a class of character in a search.
+
+ * : represents zero or more character.
+? : represents single character 
+[] :represents a range of character.
+
+
+#Linux File Types:- 
+ 
+file symbol 	regular meaning 
+ - 		Regular file 
+ d		Directory
+ l  		Link
+ c		Special file or device file 
+ s		socket 
+ p 		Named pipe 
+ b 		Block device 
+
+# Soft links and Hard Links 
+
+inode= pointer or number of a file on the hard disk
+Soft link =Link will be removed if file is removed or renamed 
+Hard Link = Deleting renaming or moving the original file will not affect the hard link.
+
+You cannot create soft link or hard link within the same directory with the same name. That is why we will create links in /tmp directory.
+
+Softlink command : 
+	ln -s 
+verify using ls -ltr
+ls -li:to find the inode 
+
+
+HardLink command : 
+  	ln 
+
+
+
+
+
+
+
