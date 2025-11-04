@@ -1,0 +1,12 @@
+Linux has a super user account called root.
+	A root is a most powerful account that can create ,modify, delete  accounts  and make changes to system configuration files.
+
+Linus a a case sensitive system.
+Avoid using spaces in files and directory names 
+
+Linux kernel is not operating system. It is small software within Linux operating system that takes command from users and pass them to system hardware.
+
+It is mostly CLI not GUI.
+
+Linux is very flexible as compared to other OS.
+
