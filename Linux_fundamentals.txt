@@ -1,0 +1,318 @@
+ls :list 
+ls -l "<specific file>"
+
+rm -f:delete without asking permission file 
+rm -r :delete without asking permission in case of directory 
+
+man <command> : IT gives u all options related to the particular command
+
+# File permission :
+
+Unix is multi user system, every file and directory in ur account can be protected from or  made accessible to other users by changing its access permissions.
+
+There are  3 types of permission :-
+
+r = read
+w = write
+x = execute(running a prgm)
+
+Each permission can be controlled at three levels :-
+
+u =user
+g =group
+o =other 
+
+File or Directory permission can be displayed by running ls -l command
+
+Command to change permission : chmod 
+
+eg : chmod a-r <file_name> : it means deleting read permission for all files 
+
+chmod g-w jerry : it means deleting permission to write from group in file jerry 
+
+to give permission use command like + instead of - 
+eg :- chmod g+w jerry
+
+We need executable rights to Cd into the directory .
+
+#Permission Using Numeric Mode :
+
+permission to a file or directory can also be assigned numerically.
+
+ -re -rw -r-- 
+	-re : User
+	-rw: Group 
+	-r-- : Execute
+
+Number 		Permission type 	Symbol 
+
+0 		No permission		--
+1		Execute			-x
+2		Write			-w-
+3		Execute + write 	-wx
+4		Read			r--
+5		Read + execute		r-x
+6		Read + write 		rw-
+7		Read + write + Execute  rwx
+
+
+Do practise some practise assigning and changing wuestion
+
+eg : chmod 111 sam - giving executable to everyone in sam 
+
+File Ownership :-
+
+There are 2 owners of a file or directory.
+	User and group
+
+Command to change file ownership:
+	Chown and chgrp
+	chown is used to change the ownership of file 
+	chgrp is used to change ownership of a file 
+
+
+eg :
+ 
+chown root lisa - isse lisa file ka owner root ban jaiga
+chgrp root lisa -isse lisa file ka grp ho jaiga root
+ 
+
+ACl- Access Control List 
+
+It provide an additional, more flexible permission mechanism for file systems. It is designed to assist with UNIX file permission. ACL allows you to give permission for any user or group to any disc resource.
+
+Basically, ACL are used to make flexible permission mechanism in Linux.
+
+Command to assign and remove ACL permissions are :
+	SetFacl and getfacl
+
+List of command :-
+
+1)To add permission for users - 
+	setfacl -m u:user:rwx /path/to/file
+2)To add permission for a group -
+	setfacl -m g:group:rw /path/to/file
+3)To allow all files or directories to inherit ACL entries from the directory it is within -
+	setfacl -dm "entry" /path.to/dir
+4)To remove a specific entry -
+	setfacl -x /u:user /path/to/file
+5)To remove all entries -
+	setfacl -b path/to/file(for all users)
+
+Note :-
+
+As you assign the ACL permission to a file/directory it adds +sign at the end of the permission 
+Setting w permission with ACL does not allow to remove a file 
+Help Command :-
+
+There are 3 types of help commands 
+	
+whatis "command " :- it tell in short about the command
+"command" --help :-IT gives a little longer description also give all available version related to the command 
+man "command " :-IT gives a very descripted and formatted description about the command.
+
+TAB Completion and UP arrow :-
+
+Hitting TAB key completes the available commands, files or directories.
+Hitting a up arrow key on keyboard returns the last command run 
+
+			#Adding text to files :-
+
+3 simple ways to add text to a file 
+	vi
+	Redirect command output > or >>
+	echo > or >> (use >> else only using > will erase previous 	text)
+	
+
+
+
+		#Input and output redirects 
+
+There are 3 redirects in Linux:-
+1.Standard input(stdin) and it has file descriptor number as 0.
+2.Standard output(stdout) and it has file descriptor number as 1.
+3.Standard error(stderr) and it hads file descriptor number as 2
+
+output(Stdout) : 1 
+
+By default when running a command its output goes to the terminal.
+The output of a command can be routed to a file using > symbol
+
+Standard output to a file - tee
+
+"tee" command is used to store and view the output of the any command.
+
+
+
+			#Pipes
+A pipe is used by shell to connect the output of one command directly to the input of another command.
+
+
+		#Multiple command running 
+
+
+In Linux we can run multiple command in one line provided they are separated by ; 
+
+eg :
+
+1)echo "hi" ; echo "hello"
+
+output - 
+hi 
+hello
+
+		#File Maintenance Commands 
+
+cp :copy command to copy files and directory 
+rm :
+mv
+mkdir
+rmdir or rm -r 
+chgrp
+chown
+
+		# File Display Command 
+
+cat :list content of your file.
+more :one page view at a time. 
+less 
+head 
+tail
+
+		#Filter/text processor commands 
+
+cut :-
+It is a command line utility that allows you to cut parts of lines from specified files or piped data and print the result to standard output. It can be used to cut parts of a line by delimiter, byte position and character.
+
+	cut filename = Does not work 
+	cut --version = check version 
+	cut -c1 filename =list one character
+	cut -c1,2,4= Pick and choose character 
+	cut -c1-3 filename = List range of characters
+	cut -c1-3,6-8 filename= List specific range of characters.
+	cut -b1-3 filename = List by byte size
+	cut -d : -f 6 /etc/passwd = List first 6th columns 	separated by :
+	cut -d: -f 6-7 /etc/passwd = List first 6th and 7th 	column separated by :
+
+awk :list by columns 
+It is a utility /language designed for data extraction. Most of the time it is used to extract fields from a file or from an output .
+
+awk --version =check version 
+awk '{print $1}' file = print first_word of each line in a file
+awk '{$NF}' = Last field of the output 
+awk '/jerry/ {print}' file =search for a specified word
+awk -F: '{Print $1}' /etc/passwd = Output only 1st field of 	/etc/passwd
+echo " Hello Tom " | awk '{2 ="Adam"; print $0}'=Replace words field words 
+cat file| awk '{$2="Imran"; peint $0}'
+awk 'length($0) > 15 ' file  = Get lines that have more than 15 byte size 
+
+
+
+
+grep and egrep : search by using keywords 
+sort 
+uniq 
+wc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
