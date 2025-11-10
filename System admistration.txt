@@ -1,0 +1,235 @@
+		#Linux File Editor 
+
+A text editor is a program which enables you to create and manipulate data in a Linux file.
+
+vi supplies commands for :-
+	1)inserting and deleting text 
+	2)Replacing text
+	3)Moving around the file
+	4)Finding and substituting strings 
+	5)Cutting and pasting keys 
+
+Most common keys :
+
+	i = insert
+	esc=escape out of any mode 
+	d=delete
+	r=replace
+	q!= quit without saving 
+	wq!=quit and save
+
+ #Difference between vi and vim editor
+
+Vim is based in the vi ,it has all the features as vi  + some excellent addition. There is also a comprehensive help system and lots of customisation options available.
+
+#SED Command :-
+
+Replace a string in a file with a newstring
+used to find and delete a line in a large file 
+remove empty line 
+remove the first or n lines in a file 
+to replace tabs with spaces 
+show defined lines from a file 
+substitute within vi editor 
+
+eg :
+ sed 's/Kenny/lenny/g' <file_name> = Kenny changes to lenny 
+s=substitute and g = for all the Kenny 
+
+		#User Account Management 
+
+Command :-
+	useradd
+	groupadd
+	userdel
+	groupdel
+	usermod
+
+eg :
+useradd spider -create user spider 
+id spider - it will check if user "spider" os created or not 
+groupadd superhero - add a group named superhero
+userdel -r spider  - it will delete the user spider 
+
+groupadd newgrp
+groupdel newgrp
+
+usermod : modifies the user account 
+
+		#Switch Users and sudo Access
+
+Commands :-
+	su - username : change to another user 
+	sudo command : 
+	visudo
+
+
+		#Monitor Users 
+who : how many people are logged in along with their terminal ID
+LAST : All every user details since day 1 of all users who logged 	in.
+
+	#Talking to users - 
+users 
+wall : broadcast ur msg to everyone who is logged in to Linux system.(Ctrl +d for saving).
+write : it transform from one user to another user.
+ eg : write <username>
+
+	#Special permissions 
+
+All permission on a file or  directory are referred to as bits.
+
+There are 3 additional permissions :-
+	setuid : bit tells Linux to run a program with the 			effective user id of the owner instead of the 			executor.
+		eg : passwd
+	setgid :bit tell Linux to run a program with the effective 		group id of the owner instead of the executor.
+		eg :locate or wall
+
+	sticky bit :- a bit set on files/directories that allows 		only the owner or root to delete those files.
+	
+To assign special permission at the user level : chmod u+s xyz.sh
+To assign special permission at the group level : chmod g+s xyz.sh
+To remove special permission at the user or group level 
+	chmod u-s xyz.sh
+	chmod g-s xyz.sh
+
+To find all executables in Linux with setuid and setgid permissions : 
+	find / -perm /6000 -type f 
+
+Note : These bits work on C programming executables not on bash shell script 
+
+			# Linux Account Authentication 
+Types of Accounts :
+Local Accounts 
+Domain /Directory Account 
+
+			#Notes :-
+
+Difference between Active Directory ,LDAP, IDM , WinBIND ,OpenLDAP etc 
+
+Active Directory is used in windows environment 
+IDM :Identity Manager ,built by Redhat .
+WinBIND : Used in Linux to Communicate with windows
+OpenLDAP(Open source) :- specifically used for Linux type of 				environment 
+IBM Directory Server :Propritory product by IBM
+
+		#System Utility Command 
+
+date
+uptime : It simply tells how long system up for ,how many user and 	load average .
+hostname : it tells us about the hostname of the machine 
+uname : it tells about Linux version 
+which : 
+cal :calender command 
+bc :binary calculator   
+
+
+			
+			#Process and Jobs 
+
+Application =service 
+Script =Shell Scripts or Commands are list of Intrsuction 
+	eg : adduser, cd pwd etc
+Process  = when application is run process is started 
+Daemon = Runs Continuously in background until interrupted 
+Threads = Every process could have multiple thread associated with it 
+Job = Run a service or process at a schedule time 
+
+#Process or service command :-
+
+Systemctl or service 
+PS : what are the process running in the system
+top : All process running on system depending on which process  u want to see first 
+Kill : Kills the process by name or process ID
+crontab : use to schedule services, process ,job .
+at : like crontab ,at schedule only at one time basis
+
+ 
+Systemctl command :-
+System control command , used to start your application .
+It is a tool to control system service 
+It is available in version 7 and later ,it replacing  "Service" command.
+
+
+PS Command :-
+It stands for process status and it display all the currently running processes in the Linux System.
+eg : 
+ps =Shows the process of the current shell 
+
+PID =the unique process ID
+TTY = terminal type that the user logged in to 
+TIME = amount of CPU in minutes and seconds that the process has been running 
+CMD = name of the command 
+
+
+--- ps -e : Shoes all running processes 
+--- ps aux = shows all running process in  BSD format
+--- ps -ef = Shows all the running process in full format listing 
+--- ps -u username = Shows all the process by username 
+
+top command :- 
+
+It is used to show the Linux proceses and it provides a real time view of the running system.
+
+This command shows the summary information of the system and the list of processs or thread which are currently managed by Linux kernel.
+When top command is executed then it goes into interactive mode and you can exit out by hitting q 
+
+When we run "top" command we get many coloumns as output :-
+
+PID : Shows task's unique process id
+USER :Username of owner of task 
+PR :
+NI:
+VIRT: Total virtual memory used by the task
+RES : Memory consumed by the process in RAM 
+SHR : Represents  the amount of shared memory used by the task
+S :This field show the process state in the single  letter form
+%CPU :Represents the CPU usage 
+%MEM : Shows the memory usage of task 
+TIME +:CPU  Time ,the same as 'TIME' ,but reflecting more granularity through hundredths of a second.
+
+
+Kill Command :- 
+
+It is used to terminate the processes manually 
+It sends a signal which ultimately terminates or kills a particular process or group of processes.
+
+KILL [option][PID] 
+	option : Signal name or signal number 
+	PID= process ID
+kill -l =to get a list of all signal names or signal number 
+kill -1 =restart 
+kill -2 =Interrupt from the keyboard just like Ctrl C 
+kill -9 = Forcefully kill the process
+kill -15 = Kill a process gracefully
+
+
+		#Process signal in Linux :-
+
+
+It means sending signal to running process.
+Its purpose is to Enable Communiaction
+			Manage Process
+
+Types  :-
+	Standard Signals :-
+	
+	Predefined Signals
+	OS Send to process
+ 
+	eg :-Stop ,pause and terminate
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
