@@ -1,0 +1,217 @@
+#Linux Kernel :-
+
+Interface btw hardware and software.
+It takes command from shell.
+
+Shell is like a container ,act as interface between  users amd kernel/OS 
+
+Command to find shell:
+
+echo $0
+Available shells : "cat/etc/shells" :This command will tell about all the available shell
+Your Shell ? cat /etc/passwd
+
+Eg of shell :-
+
+Windows GUI, Linux KDE GUI, Linux sh, bash.
+
+Types of Shell :
+
+Gnome.
+KDE
+sh
+bash
+A shell script is an executable file containing multiple shell commands that are executed sequentially. The file can contain :-
+1)Shell(#! /bin/bash)
+2)Comments(# comments)
+3)Commands(echo ,cp ,grep etc)
+4)Statements(if, while, for etc)
+
+Shell script should have executable permission(e.g. : -rwx r-x r-x)
+Shell script has to be called from absolute path.
+if called from current location then ./script.bash
+
+Commands :-
+	vi script1 
+		#! /bin/bash - this defines that u r 			goanna run 	the script under bash 			shell.
+	chmod a+x script1 :- use to give permission.
+	./script - to see the output
+	To run from absolute 				path :-/home/iafzal/myscripts/script1
+
+
+   Example 2 :-
+
+	-------------Defining tasks -------------
+	
+	vi script2
+	
+		#! /bin/bash
+		# Define small commands 
+		
+		whoami
+		echo
+		pwd
+		echo
+		hostname
+		echo
+		ls -ltr
+		echo
+
+		In output we will be able to see the 			output when each of these command are run.
+	chmod a+x script2
+	./script2
+
+  Example 3 :- Example of defining and printing variable 
+	
+	vi script3
+ 	
+		#! /bin/bash
+		#Example of defining variable 
+
+		a=Imran
+		b=Afzal
+		c=Linux class 
+
+		echo "my 1st name is $a"
+		echo "my surname is $b"
+		echo "My class is $c"
+	chmod a+x script3
+	./script3
+
+#Input & Output 
+
+Create script to take input from the user
+
+#! /bin/bash
+echo Hello, my name is yash
+echo
+echo what is your name?
+read namecont
+echo
+echo Hello $namecont
+	
+	chmod a+x <script_name>
+	./<script_name>
+
+
+#If Then scripts :-
+
+Example :
+	#! /bin/bash
+	count=100
+	if [ $count -eq 100 ]
+	then
+	    echo count is 100
+	else
+	    echo count is not 100
+	fi
+	
+Example 2 :
+	#! /bin/bash
+	if [ -e /home/iafzal/error.txt ]
+		then
+		echo "File exist"
+		else
+		echo "File does not exist "
+	fi
+
+#For Loops Scripts :-Keep running until specified number  
+			of variable 
+
+Example :-
+	#! /bin/bash
+	for i in eat run jump play
+	do 
+	echo See Imran $i 
+	done
+
+Output :-
+	See Imran eat
+	See Imran run
+	See Imran jump
+	See Imran play
+
+
+
+#Do While Scripts :-The while statement continually executes a block of statements while a particular condition is true or met 
+
+Syntax :-
+	do
+		command1
+		command2 
+		command3
+	done
+
+#Case Statement Scripts 
+
+Example :-
+	#!/bin/bash
+	echo 
+	echo "Please chose one of the options below"
+	echo
+	echo 'a =Display Date and Time'
+	echo 'b=List file and directories'
+	echo 'c=List users logged in'
+	echo 'd=Check system uptime'
+echo
+
+case $choices in
+
+a)date;;
+b)ls;;
+c)who;;
+d)uptime;;
+*)echo invalid choice -Bye
+
+esac
+
+
+#Aliases :-
+
+Aliases is a very popular command that is used to cut down on lengthy and repetitive commands.
+
+	alias ls ="ls -al"
+	alias pl="pwd; ls"
+	alias tell="whoami; hostname ;pwd;
+	alias dir ="ls -l | grep ^d"
+	alias lmar="ls -l |grep Mar"
+	alias wpa= "chmod a+w"
+	alias d="df -h |awk '{print \$6}' |cut -c1-4"
+
+
+
+
+The history command in a Unix/Linux shell is used to display the list of previously executed commands in the current shell session. It's a very handy tool for recalling past commands, especially when working on complex tasks or debugging.
+
+
+An alias is a shortcut for a command or a group of commands. You define it so that when you type a short word, the shell replaces it with the full command.
+
+alias shortname='actual command'
+
+alias ll='ls -l'
+alias gs='git status'
+alias update='sudo yum update -y'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
